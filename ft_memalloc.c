@@ -14,18 +14,16 @@
 
 void	*ft_memalloc(size_t size)
 {
-	unsigned char   *t;
-	void	        *res;
-    size_t          i
+	unsigned char   *res;
+    size_t          i;
 
-	if ((res = malloc(size)) == NULL)
+	if ((res = (unsigned char*)malloc(size)) == NULL)
 		return (NULL);
     i = 0;
-    t = (unsigned char*)res;
     while (i < size)
     {
-        t[i] = 0;
+        res[i] = 0;
         i++;
     }
-	return (res);
+	return ((void *)res);
 }
