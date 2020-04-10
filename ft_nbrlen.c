@@ -14,8 +14,10 @@ int		ft_nbrlen(__uint128_t nbr)
 {
     int len;
 
-	len = 1;
-	while (nbr)
+    if (nbr == 0)
+        return (1);
+    len = 0;
+    while (nbr)
     {
 		len++;
         nbr /= 10;
