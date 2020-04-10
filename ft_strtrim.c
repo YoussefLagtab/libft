@@ -22,10 +22,10 @@ char	*ft_strtrim(char const *s)
 	if (s == NULL)
 		return (NULL);
 	start = 0;
-	while (s[start] >= 9 && s[start] <= 13)
+	while (s[start] == ' ' || (s[start] >= 9 && s[start] <= 13))
         ++start;
     end = ft_strlen(s) - 1;
-    while (start < end && s[end] >= 9 && s[end] <= 13)
+    while (start < end && (s[end] == ' ' || (s[end] >= 9 && s[end] <= 13)))
         --end;
     ++end;
     if ((new_str = (char *)malloc(end - start + 1)) == NULL)
