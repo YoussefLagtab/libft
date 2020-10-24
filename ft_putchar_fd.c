@@ -6,13 +6,13 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 23:37:34 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/11/20 19:32:52 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:31:26 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	return (ft_write_buff(&c, 1, fd));
 }

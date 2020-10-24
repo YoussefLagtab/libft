@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigint_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 22:07:53 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/27 22:07:54 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/09/10 01:05:43 by vanderwolk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_bigint_is_zero(t_bigint *bg_int)
 	return (1);
 }
 
-int		ft_bigint_print(t_bigint *bg_int)
+int		ft_bigint_print(t_bigint *bg_int, int fd)
 {
 	int		len;
 	int		ret;
@@ -36,7 +36,7 @@ int		ft_bigint_print(t_bigint *bg_int)
 	len = bg_int->length - 1;
 	while (len >= 0)
 	{
-		ret += ft_putchar(bg_int->digits[len] + 48);
+		ret += ft_putchar_fd(bg_int->digits[len] + 48, fd);
 		len--;
 	}
 	return (ret);

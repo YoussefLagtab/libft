@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 04:47:19 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/04/20 01:57:08 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:55:02 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		count_words(char *s, char c)
+static int	count_words(char *s, char c)
 {
 	int i;
 	int k;
@@ -33,7 +33,7 @@ static int		count_words(char *s, char c)
 	return (count);
 }
 
-static char		**create_table(const char *s, char c)
+static char	**create_table(const char *s, char c)
 {
 	char	**t;
 	int		w_count;
@@ -43,21 +43,21 @@ static char		**create_table(const char *s, char c)
 	return (t);
 }
 
-static char     **free_table(char **words, int size)
+static char	**free_table(char **words, int size)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (i < size)
-    {
-        free(words[i]);
-        i++;
-    }
-    free(words);
-    return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		free(words[i]);
+		i++;
+	}
+	free(words);
+	return (NULL);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;

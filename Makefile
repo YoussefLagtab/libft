@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/20 21:20:45 by mel-idri          #+#    #+#              #
-#    Updated: 2020/02/19 15:48:48 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/10/15 09:43:33 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 NAME = libft.a
 
 # compilation variables
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CC = gcc
 
 # libft																	   #
@@ -30,17 +30,22 @@ LIBFT = ft_autoalloc.o ft_nbrlen.o ft_nbrlen_base.o ft_atoi.o  \
 	ft_lstnew.o ft_lstsearch.o ft_max.o ft_memalloc.o ft_memccpy.o \
 	ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o ft_memmove.o \
 	ft_memset.o ft_putchar.o ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o \
-	ft_putnbr.o ft_putnbr_fd.o ft_putnchar.o ft_putstr.o ft_putstr_fd.o \
-	ft_putunbr.o ft_strcat.o ft_strchr.o ft_strclr.o ft_strcmp.o \
+	ft_putnbr.o ft_putnbr_fd.o ft_putnchar.o ft_putnchar_fd.o ft_putstr.o \
+	ft_putstr_fd.o ft_putunbr.o ft_putunbr_fd.o ft_putunbr_base.o ft_putunbr_base_fd.o \
+	ft_strcat.o ft_strchr.o ft_strclr.o ft_strcmp.o \
 	ft_strcpy.o ft_strdel.o ft_strdup.o ft_strequ.o ft_strichr.o \
 	ft_striter.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlen.o \
 	ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o \
 	ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strrev.o \
 	ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o ft_tolower.o \
-	ft_toupper.o ft_putunbr_base.o ft_write_buff.o \
+	ft_toupper.o ft_write_buff.o \
 	ft_bigint_add.o ft_bigint_mult.o ft_bigint_power.o ft_bigint_init.o \
 	ft_bigint_util.o ft_queue_new.o ft_enqueue.o ft_dequeue.o \
-	ft_strglue.o ft_strjoin_free.o ft_strdup_free.o
+	ft_strglue.o ft_strjoin_free.o ft_strdup_free.o \
+	get_next_line.o ft_realloc.o ft_free_strings_array.o \
+	ft_vector_init.o ft_vector_add.o ft_vector_remove_index.o \
+	ft_vector_realloc.o
+
 LIBFT_OBJ = $(addprefix $(OBJS_DIR)/, ${LIBFT})
 
 # ft_printf																	   #

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_free_strings_array.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 05:40:49 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/09/09 22:24:18 by vanderwolk       ###   ########.fr       */
+/*   Created: 2020/09/06 23:56:00 by vanderwolk        #+#    #+#             */
+/*   Updated: 2020/10/14 10:47:37 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char const *str)
+void	ft_free_strings_array(char **array)
 {
-	if (str == NULL)
-		return (0);
-	return (ft_write_buff((char*)str, ft_strlen(str), 1));
+	size_t	i;
+
+	i = 0;
+	if (array == NULL)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

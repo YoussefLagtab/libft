@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_percenatge.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 13:54:40 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/12/10 16:26:10 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/09/09 22:39:07 by vanderwolk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	conv_percenatge(t_conv_spec *conv_spec)
 	if ((conv_spec->flags & FLAG_MINUS) == 0)
 	{
 		if (conv_spec->flags & FLAG_ZERO)
-			ft_putnchar('0', zeros);
+			ft_putnchar_fd('0', zeros, conv_spec->fd);
 		else
-			ft_putnchar(' ', spaces);
+			ft_putnchar_fd(' ', spaces, conv_spec->fd);
 	}
-	ft_write_buff("%", 1);
+	ft_write_buff("%", 1, conv_spec->fd);
 	if (conv_spec->flags & FLAG_MINUS)
-		ft_putnchar(' ', spaces);
+		ft_putnchar_fd(' ', spaces, conv_spec->fd);
 	return (conv_spec->width == 0 ? 1 : conv_spec->width);
 }

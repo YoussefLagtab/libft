@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 11:45:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/27 22:21:04 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 09:34:20 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_itoa(int n)
 {
 	unsigned int	nb;
-	char		*res;
-	size_t		size;
-	int		index;
+	char			*res;
+	size_t			size;
+	int				index;
 
-	nb = ABS(n);
+	nb = n > 0 ? n : -n;
 	size = ft_nbrlen(nb) + (n < 0);
 	if ((res = ft_strnew(size)) == NULL)
 		return (NULL);

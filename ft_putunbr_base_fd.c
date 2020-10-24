@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strichr.c                                       :+:      :+:    :+:   */
+/*   ft_putunbr_base_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/10 19:05:08 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:43:38 by ylagtab          ###   ########.fr       */
+/*   Created: 2019/04/04 15:47:04 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/10/14 12:31:38 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-size_t	ft_strichr(const char *s, int c)
+int	ft_putunbr_base_fd(unsigned long long n, int base, int is_upper, int fd)
 {
-	size_t	i;
-	char	ch;
+	int					ret;
+	static const char	*lower_base = "0123456789abcdef";
+	static const char	*upper_base = "0123456789ABCDEF";
 
-	if (s == NULL)
-		return (-1);
-	i = 0;
-	ch = (char)c;
-	while (s[i])
-	{
-		if (s[i] == ch)
-			return (i);
-		i++;
-	}
-	return (-1);
+	ret = 0;
+	if (n / base)
+		ret += ft_putunbr_base(n / base, base, is_upper);
+	ft_putchar_fd(is_upper ? upper_base[n % base] : lower_base[n % base], fd);
+	return (ret + 1);
 }

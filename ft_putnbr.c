@@ -6,20 +6,23 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 15:49:11 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/10/07 13:15:09 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:35:36 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
+	int	ret;
+
+	ret = 0;
 	if (n >= 10 || n <= -10)
-		ft_putnbr(n / 10);
+		ret = ft_putnbr(n / 10);
 	if (n < 0 && n > -10)
-		ft_putchar('-');
+		ret += ft_putchar('-');
 	if (n < 0)
-		ft_putchar('0' + (n % 10) * -1);
+		return (ret + ft_putchar('0' + (n % 10) * -1));
 	else
-		ft_putchar('0' + n % 10);
+		return (ret + ft_putchar('0' + n % 10));
 }

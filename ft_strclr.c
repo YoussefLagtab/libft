@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:27:42 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/06 22:30:06 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:40:43 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_strclr(char *s)
 {
 	if (s == NULL)
-        return ;
+		return ;
 	while (*s)
 	{
 		*s = '\0';

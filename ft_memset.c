@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 15:36:54 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/27 23:23:58 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/14 11:58:20 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t			i;
 
 	t = (unsigned char *)s;
-	ch = (unsigned char )c;
+	ch = (unsigned char)c;
 	i = 0;
 	while (i < n)
 	{

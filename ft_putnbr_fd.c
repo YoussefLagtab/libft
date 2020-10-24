@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 15:47:04 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/04/05 17:34:03 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:32:44 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
-	if (n >= 10 || n <= -10)
-		ft_putnbr_fd(n / 10, fd);
-	if (n < 0 && n > -10)
-		ft_putchar_fd('-', fd);
-	if (n < 0)
-		ft_putchar_fd('0' + (n % 10) * -1, fd);
-	else
-		ft_putchar_fd('0' + n % 10, fd);
-}
+	int ret;
 
+	ret = 0;
+	if (n >= 10 || n <= -10)
+		ret = ft_putnbr_fd(n / 10, fd);
+	if (n < 0 && n > -10)
+		ret += ft_putchar_fd('-', fd);
+	if (n < 0)
+		return (ret + ft_putchar_fd('0' + (n % 10) * -1, fd));
+	else
+		return (ret + ft_putchar_fd('0' + n % 10, fd));
+}

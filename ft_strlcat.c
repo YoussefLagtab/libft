@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 17:31:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/04/01 23:25:41 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:50:24 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 		j++;
 	}
-    dst[i] = '\0';
-    return (dst_len + src_len);
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }

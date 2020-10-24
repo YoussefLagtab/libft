@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_o.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 15:44:55 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/11/24 18:53:17 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/09/09 22:34:09 by vanderwolk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,17 @@ int			conv_o(t_conv_spec *conv_spec, va_list *ap)
 	specs.zeros = get_zeros(conv_spec, specs);
 	specs.spaces = get_spaces(conv_spec, specs);
 	if ((conv_spec->flags & FLAG_MINUS) == 0)
-		ft_putnchar(' ', specs.spaces);
+		ft_putnchar_fd(' ', specs.spaces, conv_spec->fd);
 	if ((conv_spec->flags & FLAG_SPACE))
-		ft_putchar(' ');
+		ft_putchar_fd(' ', conv_spec->fd);
 	if ((conv_spec->flags & FLAG_PLUS))
-		ft_putchar('+');
+		ft_putchar_fd('+', conv_spec->fd);
 	ft_putnchar('0', specs.zeros);
 	if ((conv_spec->flags & FLAG_HASH) && specs.unbr && specs.zeros == 0)
-		ft_putchar('0');
+		ft_putchar_fd('0', conv_spec->fd);
 	if (specs.unbr_len != 0)
-		ft_putunbr_base(specs.unbr, 8, 0);
+		ft_putunbr_base_fd(specs.unbr, 8, 0, conv_spec->fd);
 	if (conv_spec->flags & FLAG_MINUS)
-		ft_putnchar(' ', specs.spaces);
+		ft_putnchar_fd(' ', specs.spaces, conv_spec->fd);
 	return (get_printed_len(conv_spec, specs));
 }

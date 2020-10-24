@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/02 21:31:38 by vanderwolk       ###   ########.fr       */
+/*   Updated: 2020/10/15 09:44:02 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
+# define GNL_BUFF_SIZE 50
 # define BUFF_SIZE 4096
-# define ABS(number) number > 0 ? number : (-1) * number
 
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memset(void *b, int c, size_t len);
@@ -48,7 +49,7 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strnstr(const char *haystack, const char *needle,
-	                size_t len);
+					size_t len);
 char			*ft_strstr(const char *haystack, const char *needle);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -71,13 +72,18 @@ char			*ft_itoa(int n);
 int				ft_putchar(char c);
 int				ft_putnchar(char c, int n);
 int				ft_putstr(char const *str);
-void			ft_putendl(char const *s);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char const *s, int fd);
-void			ft_putnbr(int n);
-void			ft_putunbr(unsigned long long n);
-void			ft_putendl_fd(char const *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
+int				ft_putendl(char const *s);
+int				ft_putnbr(int n);
+int				ft_putunbr(unsigned long long n);
+int				ft_putunbr_base(unsigned long long n, int base, int is_upper);
+int				ft_putchar_fd(char c, int fd);
+int				ft_putnchar_fd(char c, int n, int fd);
+int				ft_putstr_fd(char const *s, int fd);
+int				ft_putendl_fd(char const *s, int fd);
+int				ft_putnbr_fd(int n, int fd);
+int				ft_putunbr_fd(unsigned long long n, int fd);
+int				ft_putunbr_base_fd(unsigned long long n, int base, int is_upper,
+					int fd);
 
 typedef struct	s_list
 {
@@ -92,15 +98,14 @@ t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem),
-                    void (*del)(void *, size_t));
+					void (*del)(void *, size_t));
 t_list			*ft_lstsearch(t_list *lst, int (*f)(t_list *l));
 size_t			ft_strichr(const char *s, int c);
 void			ft_strrev(char *s);
 int				ft_nbrlen(__uint128_t unbr);
 int				ft_nbrlen_base(unsigned long long n, int base);
 int				ft_max(int nbr1, int nbr2);
-void			ft_putunbr_base(unsigned long long n, int base, int is_upper);
-long long       ft_power(int nbr, int exp);
+long long		ft_power(int nbr, int exp);
 
 typedef struct	s_alloc_list
 {
@@ -111,9 +116,9 @@ typedef struct	s_alloc_list
 void			ft_autofree_all(void);
 void			*ft_memdup(void *dst, const void *src, size_t n);
 void			*ft_autoalloc(size_t size);
-int				ft_write_buff(char *str, size_t size);
-void			ft_flush_buff(void);
-int				ft_printf(char *format, ...);
+int				ft_write_buff(char *str, size_t size, int fd);
+void			ft_flush_buff(int fd);
+int				ft_printf(int fd, char *format, ...);
 
 typedef	struct	s_queue
 {
@@ -137,10 +142,41 @@ t_bigint		*ft_bigint_add(t_bigint *a, t_bigint *b);
 t_bigint		*ft_bigint_mult(t_bigint *a, t_bigint *b);
 t_bigint		*ft_bigint_from_uint128(__uint128_t unbr);
 t_bigint		*ft_bigint_power(unsigned int b, unsigned int exp);
-int				ft_bigint_print(t_bigint *bg_int);
+int				ft_bigint_print(t_bigint *bg_int, int fd);
 int				ft_bigint_is_zero(t_bigint *bg_int);
 char			*ft_strglue(char const *s1, char glue, char const *s2);
 char			*ft_strdup_free(const char **s);
 char			*ft_strjoin_free(char const *s1, char const *s2, int a, int b);
+void			*ft_realloc(void *addr, size_t old_size, size_t new_size);
+int				get_next_line(const int fd, char **line);
+
+typedef struct	s_list_fd
+{
+	int					fd;
+	char				*rest;
+	struct s_list_fd	*next;
+}				t_list_fd;
+
+typedef struct	s_element {
+	void	*content;
+	size_t	content_size;
+}				t_element;
+
+typedef struct	s_vector {
+	t_element	**array;
+	size_t		capacity;
+	size_t		length;
+}				t_vector;
+
+t_vector		*ft_vector_new(void);
+int				ft_vector_init(t_vector *vector);
+t_vector		*ft_vector_new_capacity(size_t capacity);
+int				ft_vector_init_capacity(t_vector *vector, size_t capacity);
+int				ft_vector_add(t_vector *vector, void *content,
+					size_t content_size);
+int				ft_vector_remove_index(t_vector *vector, size_t index,
+					void (*del)(void *content, size_t content_size));
+int				ft_vector_realloc(t_vector *vector, size_t new_capacity);
+void			ft_free_strings_array(char **array);
 
 #endif

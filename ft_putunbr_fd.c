@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 05:40:49 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/09/09 22:24:18 by vanderwolk       ###   ########.fr       */
+/*   Created: 2019/04/04 15:47:04 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/10/15 08:37:09 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char const *str)
+int		ft_putunbr_fd(unsigned long long n, int fd)
 {
-	if (str == NULL)
-		return (0);
-	return (ft_write_buff((char*)str, ft_strlen(str), 1));
+	int ret;
+
+	ret = 0;
+	if (n / 10)
+		ret += ft_putunbr(n / 10);
+	return (ret + ft_putchar_fd(n % 10 + '0', fd));
 }

@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 21:20:05 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/12/12 19:43:56 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/14 12:43:21 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # define INF 1
 # define NAN 2
 # define FLOAT 3
-# define IS_DIGIT(x) '0' <= x && x <= '9'
-# define MAX(a, b) (a > b ? a : b)
 
 typedef	enum		e_length
 {
@@ -45,6 +43,7 @@ typedef struct		s_conv_spec
 	int				width;
 	int				is_pset;
 	int				precision;
+	int				fd;
 	t_length		length;
 	char			conv_char;
 }					t_conv_spec;
@@ -78,11 +77,11 @@ typedef struct		s_float_specs
 	int				float_type;
 }					t_float_specs;
 
-int					parse_conversion(char **conv_str, va_list *ap);
+int					parse_conversion(char **conv_str, va_list *ap, int fd);
 int					apply_conv_function(t_conv_spec *conv_spec, va_list *ap,
 						int c);
 int					is_in_str(int c, char *str);
-int					ft_printf(char *format, ...);
+int					ft_printf(int fd, char *format, ...);
 int					conv_di(t_conv_spec *conv_spec, va_list *ap);
 int					conv_u(t_conv_spec *conv_spec, va_list *ap);
 int					conv_o(t_conv_spec *conv_spec, va_list *ap);

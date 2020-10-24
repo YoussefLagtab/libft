@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 23:44:28 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/06 22:50:21 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:42:12 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strdup(const char *s)
 {
-    size_t  i;
-	size_t  len;
-	char    *ret;
-	
+	size_t	i;
+	size_t	len;
+	char	*ret;
+
 	if (s == NULL)
 		return (NULL);
 	len = 0;
@@ -31,5 +31,6 @@ char	*ft_strdup(const char *s)
 		ret[i] = s[i];
 		i++;
 	}
+	ret[i] = '\0';
 	return (ret);
 }

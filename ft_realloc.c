@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 05:40:49 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/09/09 22:24:18 by vanderwolk       ###   ########.fr       */
+/*   Created: 2020/08/30 01:42:48 by vanderwolk        #+#    #+#             */
+/*   Updated: 2020/10/15 08:38:58 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char const *str)
+void	*ft_realloc(void *addr, size_t old_size, size_t new_size)
 {
-	if (str == NULL)
-		return (0);
-	return (ft_write_buff((char*)str, ft_strlen(str), 1));
+	void	*ret_addr;
+
+	ret_addr = malloc(new_size);
+	if (ret_addr == NULL)
+	{
+		free(addr);
+		return (NULL);
+	}
+	ft_memcpy(ret_addr, addr, old_size);
+	free(addr);
+	return (ret_addr);
 }

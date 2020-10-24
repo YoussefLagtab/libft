@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 23:06:24 by ylagtab           #+#    #+#             */
-/*   Updated: 2019/10/07 14:09:42 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/15 08:51:01 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL)
 		return (NULL);
-	size = ft_strlen((const char *)s); 
+	size = ft_strlen((const char *)s);
 	if ((new_str = (char*)malloc(size + 1)) == NULL)
 		return (NULL);
 	i = 0;

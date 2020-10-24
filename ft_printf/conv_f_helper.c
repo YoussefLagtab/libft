@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_f_helper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vanderwolk <vanderwolk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 21:10:32 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/12/25 18:24:06 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/09/09 22:42:20 by vanderwolk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		print_float_prefix(t_conv_spec *conv_spec, int float_sign)
 
 	ret = 0;
 	if ((conv_spec->flags & FLAG_PLUS) || float_sign)
-		ret = ft_putchar(float_sign ? '-' : '+');
+		ret = ft_putchar_fd(float_sign ? '-' : '+', conv_spec->fd);
 	else if (conv_spec->flags & FLAG_SPACE)
-		ret = ft_putchar(' ');
+		ret = ft_putchar_fd(' ', conv_spec->fd);
 	return (ret);
 }

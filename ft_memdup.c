@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 23:14:54 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/27 23:14:54 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/14 11:57:32 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memdup(void *src, size_t n)
 {
-    unsigned char	*res;
+	unsigned char	*res;
 	unsigned char	*s;
-	size_t      	i;
+	size_t			i;
 
 	if (src == NULL || (res = (unsigned char*)malloc(n)) == NULL)
 		return (NULL);
