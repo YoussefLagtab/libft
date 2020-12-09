@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/10/15 09:44:02 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/29 09:19:51 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ size_t			ft_strichr(const char *s, int c);
 void			ft_strrev(char *s);
 int				ft_nbrlen(__uint128_t unbr);
 int				ft_nbrlen_base(unsigned long long n, int base);
-int				ft_max(int nbr1, int nbr2);
+int				ft_max(unsigned long nbr1, unsigned long nbr2);
 long long		ft_power(int nbr, int exp);
 
 typedef struct	s_alloc_list
