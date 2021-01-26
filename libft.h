@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/10/29 09:19:51 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/23 19:00:21 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # define GNL_BUFF_SIZE 50
 # define BUFF_SIZE 4096
+
+# ifndef EXIT_ON_ALLOC_FAIL
+#  define EXIT_ON_ALLOC_FAIL 0
+# endif
 
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memset(void *b, int c, size_t len);
@@ -104,7 +108,7 @@ size_t			ft_strichr(const char *s, int c);
 void			ft_strrev(char *s);
 int				ft_nbrlen(__uint128_t unbr);
 int				ft_nbrlen_base(unsigned long long n, int base);
-int				ft_max(unsigned long nbr1, unsigned long nbr2);
+int				ft_max(int nbr1, int nbr2);
 long long		ft_power(int nbr, int exp);
 
 typedef struct	s_alloc_list
@@ -114,7 +118,7 @@ typedef struct	s_alloc_list
 }				t_alloc_list;
 
 void			ft_autofree_all(void);
-void			*ft_memdup(void *dst, const void *src, size_t n);
+void			*ft_memdup(void *src, size_t n);
 void			*ft_autoalloc(size_t size);
 int				ft_write_buff(char *str, size_t size, int fd);
 void			ft_flush_buff(int fd);
@@ -178,5 +182,7 @@ int				ft_vector_remove_index(t_vector *vector, size_t index,
 					void (*del)(void *content, size_t content_size));
 int				ft_vector_realloc(t_vector *vector, size_t new_capacity);
 void			ft_free_strings_array(char **array);
+void			*ft_malloc(size_t size);
+size_t			ft_strings_array_length(char **arr);
 
 #endif

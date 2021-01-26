@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 04:47:19 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:55:02 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:17:04 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	**create_table(const char *s, char c)
 	int		w_count;
 
 	w_count = count_words((char *)s, c) + 1;
-	t = (char **)ft_memalloc(w_count * sizeof(char *));
+	t = (char **)ft_malloc(w_count * sizeof(char *));
 	return (t);
 }
 

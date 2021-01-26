@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 03:15:52 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:52:07 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:17:26 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*new_str;
 	size_t	i;
 
-	if (s == NULL || (new_str = (char *)malloc(len + 1)) == NULL)
+	if (s == NULL || (new_str = (char *)ft_malloc(len + 1)) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len)

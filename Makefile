@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/20 21:20:45 by mel-idri          #+#    #+#              #
-#    Updated: 2020/10/15 09:43:33 by ylagtab          ###   ########.fr        #
+#    Updated: 2021/01/23 19:00:09 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,15 @@ NAME = libft.a
 
 # compilation variables
 CFLAGS = -Wall -Wextra -Werror -g
+
+MACROS =
+ifeq ($(LIBFT_EXIT_ON_ALLOC_FAIL), true)
+    MACROS = -D EXIT_ON_ALLOC_FAIL=1
+endif
+
 CC = gcc
 
-# libft																	   #
+# libft
 LIBFT_INC = libft.h
 LIBFT = ft_autoalloc.o ft_nbrlen.o ft_nbrlen_base.o ft_atoi.o  \
 	ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o \
@@ -44,11 +50,11 @@ LIBFT = ft_autoalloc.o ft_nbrlen.o ft_nbrlen_base.o ft_atoi.o  \
 	ft_strglue.o ft_strjoin_free.o ft_strdup_free.o \
 	get_next_line.o ft_realloc.o ft_free_strings_array.o \
 	ft_vector_init.o ft_vector_add.o ft_vector_remove_index.o \
-	ft_vector_realloc.o
+	ft_vector_realloc.o ft_malloc.o ft_strings_array_length.o
 
 LIBFT_OBJ = $(addprefix $(OBJS_DIR)/, ${LIBFT})
 
-# ft_printf																	   #
+# ft_printf
 PRINTF_INC = libft.h ft_printf/ft_printf.h
 PRINTF = conv_di.o conv_u.o conv_o.o \
 	conv_c.o conv_s.o conv_f.o \
@@ -82,7 +88,7 @@ $(NAME): $(LIBFT_OBJ) $(PRINTF_OBJ)
 	@echo "$(GREEN)LIB$(RESET) libft/$(NAME): $(GREEN)UPDATED!$(RESET)";
 
 $(LIBFT_OBJ): $(OBJS_DIR)/%.o : %.c $(LIBFT_INC)| $(OBJS_DIR)
-	@gcc $(CFLAGS) -c $< -o $@
+	@gcc $(CFLAGS) $(MACROS) -c $< -o $@
 	@echo "$(YELLOW)OBJ$(RESET) libft/$@: $(YELLOW)UPDATED!$(RESET)";
 
 

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/02 22:19:36 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/15 19:16:22 by ylagtab          ###   ########.fr       */
+/*   Created: 2021/01/15 19:06:41 by ylagtab           #+#    #+#             */
+/*   Updated: 2021/01/23 10:08:11 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	*ft_malloc(size_t size)
 {
-	size_t	i;
-	size_t	size;
-	char	*new_str;
+	void	*ptr;
 
-	if (s == NULL)
-		return (NULL);
-	size = ft_strlen((const char *)s);
-	if ((new_str = (char*)ft_malloc(size + 1)) == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
+	ptr = malloc(size);
+	if (ptr == NULL && EXIT_ON_ALLOC_FAIL)
 	{
-		new_str[i] = f(s[i]);
-		i++;
+		ft_printf(2, "Allocation Error!\n");
+		exit(1);
 	}
-	new_str[i] = '\0';
-	return (new_str);
+	return (ptr);
 }

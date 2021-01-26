@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 09:27:40 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 09:28:36 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/24 18:04:02 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_vector_remove_index(t_vector *vector, size_t index,
 	(*del)(data->content, data->content_size);
 	free(data);
 	vector->length = vector->length - 1;
-	if (vector->length * 4 <= vector->capacity)
+	if (vector->length && vector->length * 4 <= vector->capacity)
 		if (ft_vector_realloc(vector, vector->capacity / 4) == -1)
 			return (-1);
 	return (0);

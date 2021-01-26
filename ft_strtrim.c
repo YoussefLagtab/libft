@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 04:02:23 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:53:39 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:17:35 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s)
 	while (start < end && ft_isspace(s[end]))
 		--end;
 	++end;
-	if ((new_str = (char *)malloc(end - start + 1)) == NULL)
+	if ((new_str = (char *)ft_malloc(end - start + 1)) == NULL)
 		return (NULL);
 	i = 0;
 	while (start < end)

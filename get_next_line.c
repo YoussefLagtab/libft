@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 12:02:02 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:56:23 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:46:12 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_list_fd	*lstadd_fd(t_list_fd **alst, int fd, char *rest)
 	t_list_fd	*node;
 	t_list_fd	*tmp;
 
-	if (alst == NULL || (node = (t_list_fd *)malloc(sizeof(t_list_fd))) == NULL)
+	if (!alst || (node = (t_list_fd *)ft_malloc(sizeof(t_list_fd))) == NULL)
 		return (NULL);
 	node->fd = fd;
 	if ((node->rest = ft_strdup((const char *)rest)) == NULL)

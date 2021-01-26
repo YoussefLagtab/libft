@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 23:44:28 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:42:12 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:15:23 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s)
 	len = 0;
 	while (s[len])
 		len++;
-	if ((ret = (char *)malloc(len + 1)) == NULL)
+	if ((ret = (char *)ft_malloc(len + 1)) == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i])
