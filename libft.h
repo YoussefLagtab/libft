@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/02/13 16:32:08 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/02 18:15:17 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,8 @@ int				ft_vector_add_at(t_vector *vector, size_t index,
 int				ft_vector_remove_at(t_vector *vector, size_t index,
 					void (*del)(void *content, size_t content_size));
 int				ft_vector_realloc(t_vector *vector, size_t new_capacity);
+void			ft_vector_free(t_vector **vec,
+					void (*del)(void *content, size_t content_size));
 void			ft_free_strings_array(char **array);
 void			*ft_malloc(size_t size);
 size_t			ft_strings_array_length(char **arr);
