@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:56:39 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/03/03 15:09:58 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/03 15:54:53 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_vector_free(t_vector *vec, t_bool free_vec,
 	size_t i;
 
 	i = 0;
+	if (vec == NULL)
+		return ;
 	while (i < vec->length)
 	{
 		if (del)
