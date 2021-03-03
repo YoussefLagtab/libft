@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/03/03 09:49:09 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/03 15:09:30 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ int			ft_vector_add_at(t_vector *vector, size_t index,
 int			ft_vector_remove_at(t_vector *vector, size_t index,
 				void (*del)(void *content, size_t content_size));
 int			ft_vector_realloc(t_vector *vector, size_t new_capacity);
-void		ft_vector_free(t_vector **vec, t_bool free_vec,
+void		ft_vector_free(t_vector *vec, t_bool free_vec,
 				void (*del)(void *content, size_t content_size));
 
 #endif
