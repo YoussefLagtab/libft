@@ -6,13 +6,13 @@
 /*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:56:39 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/03/02 18:15:03 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/03 08:49:25 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vector_free(t_vector **vec,
+void	ft_vector_free(t_vector **vec, t_bool free_vec,
 	void (*del)(void *content, size_t content_size))
 {
 	size_t i;
@@ -26,5 +26,6 @@ void	ft_vector_free(t_vector **vec,
 		++i;
 	}
 	free((*vec)->array);
-	ft_memdel((void**)vec);
+	if (free_vec == TRUE)
+		ft_memdel((void**)vec);
 }
