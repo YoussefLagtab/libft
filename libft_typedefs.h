@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   typedefs.h                                         :+:      :+:    :+:   */
+/*   libft_typedefs.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:56:12 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/03/03 09:33:53 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/03 15:57:14 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPEDEFS_H
-# define TYPEDEFS_H
+#ifndef LIBFT_TYPEDEFS_H
+# define LIBFT_TYPEDEFS_H
 
 # include <string.h>
 # include <unistd.h>
