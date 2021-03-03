@@ -6,14 +6,14 @@
 /*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/03/03 15:09:30 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/03 15:57:27 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "typedefs.h"
+# include "libft_typedefs.h"
 
 # define GNL_BUFF_SIZE 50
 # define BUFF_SIZE 4096
