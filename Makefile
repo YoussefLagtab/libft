@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+         #
+#    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/20 21:20:45 by mel-idri          #+#    #+#              #
-#    Updated: 2021/03/02 18:05:16 by ylagtab          ###   ########.fr        #
+#    Updated: 2021/03/08 11:28:00 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror -g
 
 MACROS =
-ifeq ($(LIBFT_EXIT_ON_ALLOC_FAIL), true)
+ifeq ($(LIBFT_EXIT_ON_ALLOC_FAIL), 1)
     MACROS = -D EXIT_ON_ALLOC_FAIL=1
 endif
 
