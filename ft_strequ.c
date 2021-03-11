@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 23:39:00 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/15 08:42:38 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/03/11 16:47:15 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_strequ(char const *s1, char const *s2)
 	int	i;
 
 	if (s1 == NULL || s2 == NULL)
-		return (-1);
+		return (0);
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
